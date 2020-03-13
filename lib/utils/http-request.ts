@@ -8,6 +8,12 @@ const sandboxBaseUrl = "https://sandbox.tinypass.com/api/v3";
 
 /**
  * Make HTTP request to Piano
+ *
+ * @param method - HTTP method
+ * @param path - API endpoint path
+ * @param requestParams - Params for a request
+ * @param sandbox - Set true if a target is a sandbox environment
+ * @returns Response object wrapped in promise
  */
 export const httpRequest = (
   method: "get" | "post",
