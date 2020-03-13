@@ -6,7 +6,11 @@ This is an unofficial SDK for [Piano API](https://docs.piano.io/api/). So please
 
 ## Installation
 
-WIP. This package has not been listed on NPM yet.
+Install from your local path as this package has not been listed on NPM yet.
+
+```shell
+npm install </path/to/this-package/>
+```
 
 ## Sending a Request
 
@@ -15,7 +19,7 @@ You must have API Token (`api_token`) and Application ID (`aid`) to send a reque
 The following example demonstrates fetching a user data which has uid: `abcdefg`:
 
 ```typescript
-import Piano from "/path/to/this-package/index"
+import Piano from "piano-sdk"
 
 // Initialize SDK with your API Token and Application Id
 const piano = new Piano(
