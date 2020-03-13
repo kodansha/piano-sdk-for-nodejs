@@ -1,5 +1,8 @@
 import { Publisher } from "./publisher";
 
+export * from "./interfaces/api-error";
+export * from "./interfaces/api-params";
+export * from "./interfaces/api-response";
 export * from "./interfaces/user";
 
 export class Piano {
