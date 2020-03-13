@@ -1,3 +1,5 @@
+type OrderDirection = "asc" | "desc";
+
 export interface PublisherUserCreateParams {
   uid: string;
   email: string;
@@ -21,7 +23,7 @@ export interface PublisherUserListParams {
   offset: number;
   limit: number;
   order_by?: string;
-  order_direction?: "asc" | "desc";
+  order_direction?: OrderDirection;
 }
 
 export interface PublisherUserSearchParams {
@@ -97,7 +99,7 @@ export interface PublisherUserSearchParams {
   offset: number;
   limit: number;
   order_by?: string;
-  order_direction?: "asc" | "desc";
+  order_direction?: OrderDirection;
   esdebug?: boolean;
 }
 

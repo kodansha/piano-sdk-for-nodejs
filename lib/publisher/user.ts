@@ -11,6 +11,8 @@ import {
   PublisherUserUpdateParams
 } from "../interfaces/api-params";
 
+const ENDPOINT_PATH_PREFIX = "/publisher/user";
+
 export class User {
   private readonly piano: Piano;
 
@@ -26,7 +28,7 @@ export class User {
   public async create(params: PublisherUserCreateParams): Promise<IUser> {
     const apiResponse = await httpRequest(
       "post",
-      "/publisher/user/create",
+      `${ENDPOINT_PATH_PREFIX}/create`,
       this.piano.mergeParams(params),
       this.piano.sandbox
     );
@@ -43,7 +45,7 @@ export class User {
   public async disable(params: PublisherUserDisableParams): Promise<void> {
     await httpRequest(
       "post",
-      "/publisher/user/disable",
+      `${ENDPOINT_PATH_PREFIX}/disable`,
       this.piano.mergeParams(params),
       this.piano.sandbox
     );
@@ -57,7 +59,7 @@ export class User {
   public async get(params: PublisherUserGetParams): Promise<IUser> {
     const apiResponse = await httpRequest(
       "post",
-      "/publisher/user/get",
+      `${ENDPOINT_PATH_PREFIX}/get`,
       this.piano.mergeParams(params),
       this.piano.sandbox
     );
@@ -74,7 +76,7 @@ export class User {
   public async list(params: PublisherUserListParams): Promise<[IUser]> {
     const apiResponse = await httpRequest(
       "post",
-      "/publisher/user/list",
+      `${ENDPOINT_PATH_PREFIX}/list`,
       this.piano.mergeParams(params),
       this.piano.sandbox
     );
@@ -91,7 +93,7 @@ export class User {
   public async search(params: PublisherUserSearchParams): Promise<[IUser]> {
     const apiResponse = await httpRequest(
       "post",
-      "/publisher/user/search",
+      `${ENDPOINT_PATH_PREFIX}/search`,
       this.piano.mergeParams(params),
       this.piano.sandbox
     );
@@ -108,7 +110,7 @@ export class User {
   public async update(params: PublisherUserUpdateParams): Promise<IUser> {
     const apiResponse = await httpRequest(
       "post",
-      "/publisher/user/update",
+      `${ENDPOINT_PATH_PREFIX}/update`,
       this.piano.mergeParams(params),
       this.piano.sandbox
     );
