@@ -1,7 +1,8 @@
-import { Piano } from "../piano";
-import { httpRequest } from "../utils/http-request";
+import { Piano } from "../../piano";
 
-import { User as IUser } from "../interfaces/user";
+import { httpRequest } from "../../utils/http-request";
+import { User as IUser } from "../../interfaces/user";
+import { Access } from "./access";
 import {
   PublisherUserCreateParams,
   PublisherUserDisableParams,
@@ -9,15 +10,17 @@ import {
   PublisherUserListParams,
   PublisherUserSearchParams,
   PublisherUserUpdateParams
-} from "../interfaces/api-params";
+} from "../../interfaces/api-params";
 
 const ENDPOINT_PATH_PREFIX = "/publisher/user";
 
 export class User {
   private readonly piano: Piano;
+  public readonly access: Access;
 
   constructor(piano: Piano) {
     this.piano = piano;
+    this.access = new Access(piano);
   }
 
   /**

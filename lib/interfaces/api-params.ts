@@ -110,3 +110,9 @@ export interface PublisherUserUpdateParams {
   last_name?: string;
   create_from_external?: boolean;
 }
+
+export interface PublisherUserAccessCheckParams {
+  uid: string;
+  rid: string;
+  cross_app?: boolean;
+}

@@ -6,4 +6,6 @@ export interface ApiResponse {
   message?: string;
   user?: User;
   users?: [User];
+  data?: any;
+  access?: any;
 }
