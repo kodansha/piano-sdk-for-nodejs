@@ -11,6 +11,13 @@ import {
   PublisherUserSearchParams,
   PublisherUserUpdateParams
 } from "../../interfaces/api-params";
+import {
+  PublisherUserCreateResponse,
+  PublisherUserGetResponse,
+  PublisherUserListResponse,
+  PublisherUserSearchResponse,
+  PublisherUserUpdateResponse
+} from "../../interfaces/api-response";
 
 const ENDPOINT_PATH_PREFIX = "/publisher/user";
 
@@ -29,15 +36,14 @@ export class User {
    * @see https://docs.piano.io/api?endpoint=post~2F~2Fpublisher~2Fuser~2Fcreate
    */
   public async create(params: PublisherUserCreateParams): Promise<IUser> {
-    const apiResponse = await httpRequest(
+    const apiResponse = (await httpRequest(
       "post",
       `${ENDPOINT_PATH_PREFIX}/create`,
       this.piano.mergeParams(params),
       this.piano.sandbox
-    );
+    )) as PublisherUserCreateResponse;
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    return apiResponse.user!;
+    return apiResponse.user;
   }
 
   /**
@@ -60,15 +66,14 @@ export class User {
    * @see https://docs.piano.io/api?endpoint=post~2F~2Fpublisher~2Fuser~2Fget
    */
   public async get(params: PublisherUserGetParams): Promise<IUser> {
-    const apiResponse = await httpRequest(
+    const apiResponse = (await httpRequest(
       "post",
       `${ENDPOINT_PATH_PREFIX}/get`,
       this.piano.mergeParams(params),
       this.piano.sandbox
-    );
+    )) as PublisherUserGetResponse;
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    return apiResponse.user!;
+    return apiResponse.user;
   }
 
   /**
@@ -76,16 +81,15 @@ export class User {
    *
    * @see https://docs.piano.io/api?endpoint=post~2F~2Fpublisher~2Fuser~2Flist
    */
-  public async list(params: PublisherUserListParams): Promise<[IUser]> {
-    const apiResponse = await httpRequest(
+  public async list(params: PublisherUserListParams): Promise<IUser[]> {
+    const apiResponse = (await httpRequest(
       "post",
       `${ENDPOINT_PATH_PREFIX}/list`,
       this.piano.mergeParams(params),
       this.piano.sandbox
-    );
+    )) as PublisherUserListResponse;
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    return apiResponse.users!;
+    return apiResponse.users;
   }
 
   /**
@@ -93,16 +97,15 @@ export class User {
    *
    * @see https://docs.piano.io/api?endpoint=post~2F~2Fpublisher~2Fuser~2Fsearch
    */
-  public async search(params: PublisherUserSearchParams): Promise<[IUser]> {
-    const apiResponse = await httpRequest(
+  public async search(params: PublisherUserSearchParams): Promise<IUser[]> {
+    const apiResponse = (await httpRequest(
       "post",
       `${ENDPOINT_PATH_PREFIX}/search`,
       this.piano.mergeParams(params),
       this.piano.sandbox
-    );
+    )) as PublisherUserSearchResponse;
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    return apiResponse.users!;
+    return apiResponse.users;
   }
 
   /**
@@ -111,14 +114,13 @@ export class User {
    * @see https://docs.piano.io/api?endpoint=post~2F~2Fpublisher~2Fuser~2Fupdate
    */
   public async update(params: PublisherUserUpdateParams): Promise<IUser> {
-    const apiResponse = await httpRequest(
+    const apiResponse = (await httpRequest(
       "post",
       `${ENDPOINT_PATH_PREFIX}/update`,
       this.piano.mergeParams(params),
       this.piano.sandbox
-    );
+    )) as PublisherUserUpdateResponse;
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    return apiResponse.user!;
+    return apiResponse.user;
   }
 }

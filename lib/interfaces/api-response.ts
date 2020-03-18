@@ -1,11 +1,36 @@
 import { User } from "./user";
+import { Access } from "./aceess";
 
 export interface ApiResponse {
   code: number;
   ts: number;
   message?: string;
-  user?: User;
-  users?: [User];
-  data?: any;
-  access?: any;
+}
+
+export interface PublisherUserCreateResponse extends ApiResponse {
+  user: User;
+}
+
+export interface PublisherUserGetResponse extends ApiResponse {
+  user: User;
+}
+
+export interface PublisherUserListResponse extends ApiResponse {
+  users: User[];
+}
+
+export interface PublisherUserSearchResponse extends ApiResponse {
+  users: User[];
+}
+
+export interface PublisherUserUpdateResponse extends ApiResponse {
+  user: User;
+}
+
+export interface PublisherUserAccessCheckResponse extends ApiResponse {
+  access: Access;
+}
+
+export interface PublisherUserAccessActiveCountResponse extends ApiResponse {
+  data: number;
 }

@@ -1,7 +1,9 @@
 import { Piano } from "../../../piano";
 import { httpRequest } from "../../../utils/http-request";
 import { Active } from "./active";
+import { Access as IAccess } from "../../../interfaces/aceess";
 import { PublisherUserAccessCheckParams } from "../../../interfaces/api-params";
+import { PublisherUserAccessCheckResponse } from "../../../interfaces/api-response";
 
 const ENDPOINT_PATH_PREFIX = "/publisher/user/access";
 
@@ -19,15 +21,14 @@ export class Access {
    *
    * @see https://docs.piano.io/api?endpoint=get~2F~2Fpublisher~2Fuser~2Faccess~2Fcheck
    */
-  public async check(params: PublisherUserAccessCheckParams): Promise<any> {
-    const apiResponse = await httpRequest(
+  public async check(params: PublisherUserAccessCheckParams): Promise<IAccess> {
+    const apiResponse = (await httpRequest(
       "post",
       `${ENDPOINT_PATH_PREFIX}/check`,
       this.piano.mergeParams(params),
       this.piano.sandbox
-    );
+    )) as PublisherUserAccessCheckResponse;
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    return apiResponse.access!;
+    return apiResponse.access;
   }
 }
