@@ -20,11 +20,11 @@ export class Piano {
     this.publisher = new Publisher(this);
   }
 
-  public mergeParams(params: any) {
+  public mergeParams(params: any): any {
     return {
       api_token: this.apiToken,
       aid: this.aid,
-      ...params
+      ...params,
     };
   }
 }
