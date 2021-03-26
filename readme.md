@@ -32,7 +32,7 @@ const piano = new Piano(
 
 (async () => {
   try {
-    const result = await piano.publisher.user.update({ uid: "abcdefg" });
+    const result = await piano.publisher.user.get({ uid: "abcdefg" });
     console.log(result);
   } catch (e) {
     console.log(e);
