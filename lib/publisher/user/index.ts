@@ -9,14 +9,14 @@ import {
   PublisherUserGetParams,
   PublisherUserListParams,
   PublisherUserSearchParams,
-  PublisherUserUpdateParams
+  PublisherUserUpdateParams,
 } from "../../interfaces/api-params";
 import {
   PublisherUserCreateResponse,
   PublisherUserGetResponse,
   PublisherUserListResponse,
   PublisherUserSearchResponse,
-  PublisherUserUpdateResponse
+  PublisherUserUpdateResponse,
 } from "../../interfaces/api-response";
 
 const ENDPOINT_PATH_PREFIX = "/publisher/user";
@@ -40,7 +40,7 @@ export class User {
       "post",
       `${ENDPOINT_PATH_PREFIX}/create`,
       this.piano.mergeParams(params),
-      this.piano.sandbox
+      this.piano.environment
     )) as PublisherUserCreateResponse;
 
     return apiResponse.user;
@@ -56,7 +56,7 @@ export class User {
       "post",
       `${ENDPOINT_PATH_PREFIX}/disable`,
       this.piano.mergeParams(params),
-      this.piano.sandbox
+      this.piano.environment
     );
   }
 
@@ -70,7 +70,7 @@ export class User {
       "post",
       `${ENDPOINT_PATH_PREFIX}/get`,
       this.piano.mergeParams(params),
-      this.piano.sandbox
+      this.piano.environment
     )) as PublisherUserGetResponse;
 
     return apiResponse.user;
@@ -86,7 +86,7 @@ export class User {
       "post",
       `${ENDPOINT_PATH_PREFIX}/list`,
       this.piano.mergeParams(params),
-      this.piano.sandbox
+      this.piano.environment
     )) as PublisherUserListResponse;
 
     return apiResponse.users;
@@ -102,7 +102,7 @@ export class User {
       "post",
       `${ENDPOINT_PATH_PREFIX}/search`,
       this.piano.mergeParams(params),
-      this.piano.sandbox
+      this.piano.environment
     )) as PublisherUserSearchResponse;
 
     return apiResponse.users;
@@ -118,7 +118,7 @@ export class User {
       "post",
       `${ENDPOINT_PATH_PREFIX}/update`,
       this.piano.mergeParams(params),
-      this.piano.sandbox
+      this.piano.environment
     )) as PublisherUserUpdateResponse;
 
     return apiResponse.user;

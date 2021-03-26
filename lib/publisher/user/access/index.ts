@@ -26,7 +26,7 @@ export class Access {
       "post",
       `${ENDPOINT_PATH_PREFIX}/check`,
       this.piano.mergeParams(params),
-      this.piano.sandbox
+      this.piano.environment
     )) as PublisherUserAccessCheckResponse;
 
     return apiResponse.access;

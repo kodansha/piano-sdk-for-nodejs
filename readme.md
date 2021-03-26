@@ -18,6 +18,13 @@ npm install </path/to/this-package/>
 
 You must have API Token (`api_token`) and Application ID (`aid`) to send a requests.
 
+Also, you must pick an API environment from the followings (See ["Environment" section on this page](https://docs.piano.io/api/) for details):
+
+- `us`
+- `au` - Australia
+- `ap` - Asia-Pacific
+- `sandbox` - Sandbox
+
 The following example demonstrates fetching a user data which has uid: `abcdefg`:
 
 ```typescript
@@ -27,7 +34,7 @@ import Piano from "piano-sdk"
 const piano = new Piano(
   "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", // Your API Token
   "xxxxxxxxxx", // Your Application ID
-  true // Set it true if you use Sandbox environment. Omit this if not.
+  "us" // API environment
 );
 
 (async () => {

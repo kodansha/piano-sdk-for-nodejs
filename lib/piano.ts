@@ -1,4 +1,5 @@
 import { Publisher } from "./publisher";
+import { Environment } from "./interfaces/client";
 
 export * from "./interfaces/api-error";
 export * from "./interfaces/api-params";
@@ -9,13 +10,13 @@ export class Piano {
   private readonly apiToken: string;
   private readonly aid: string;
 
-  public readonly sandbox: boolean;
+  public readonly environment: Environment;
   public readonly publisher: Publisher;
 
-  constructor(apiToken: string, aid: string, sandbox?: boolean) {
+  constructor(apiToken: string, aid: string, environment: Environment) {
     this.apiToken = apiToken;
     this.aid = aid;
-    this.sandbox = !!sandbox;
+    this.environment = environment;
 
     this.publisher = new Publisher(this);
   }
