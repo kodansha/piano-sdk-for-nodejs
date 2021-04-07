@@ -1,7 +1,7 @@
 {
   "name": "piano-sdk",
   "version": "0.0.1",
-  "description": "Piano SDK for Node.js",
+  "description": "Piano (The digital business platform) SDK for Node.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/kodansha/piano-sdk-for-nodejs.git"
