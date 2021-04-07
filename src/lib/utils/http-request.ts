@@ -1,4 +1,4 @@
-import fetch, { Response } from 'node-fetch';
+import fetch from 'node-fetch';
 import { URLSearchParams } from 'url';
 
 import { Environment } from '../interfaces/client';
@@ -36,23 +36,13 @@ export const httpRequest = async (
 
   const endpoint = `${baseUrl}${path}`;
 
-  let response: Response;
-
-  switch (method) {
-    case 'get':
-      response = await fetch(
-        `${endpoint}?${new URLSearchParams(requestParams)}`
-      );
-      break;
-    case 'post':
-      response = await fetch(endpoint, {
-        method: 'POST',
-        body: new URLSearchParams(requestParams),
-      });
-      break;
-    default:
-      throw new Error('Unsupported method');
-  }
+  const response =
+    method == 'get'
+      ? await fetch(`${endpoint}?${new URLSearchParams(requestParams)}`)
+      : await fetch(endpoint, {
+          method: 'POST',
+          body: new URLSearchParams(requestParams),
+        });
 
   const apiResponse = (await response.json()) as ApiResponse;
 
