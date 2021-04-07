@@ -4,7 +4,7 @@
 
 This is an unofficial SDK for [Piano API](https://docs.piano.io/api/). So please do not contact Piano support with questions or concerns about this SDK. For any issues, please make an issue on GitHub.
 
-Note: This project is still imcomplete and experimental. Please do not use it on production.
+Note: This project is still incomplete and experimental. Please do not use it on production.
 
 ## Installation
 
