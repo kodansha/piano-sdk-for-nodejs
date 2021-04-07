@@ -1,5 +1,5 @@
-import { User } from "./user";
-import { Access } from "./aceess";
+import { User } from './user';
+import { Access } from './access';
 
 export interface ApiResponse {
   code: number;
@@ -29,6 +29,10 @@ export interface PublisherUserUpdateResponse extends ApiResponse {
 
 export interface PublisherUserAccessCheckResponse extends ApiResponse {
   access: Access;
+}
+
+export interface PublisherUserAccessListResponse extends ApiResponse {
+  accesses: Access[];
 }
 
 export interface PublisherUserAccessActiveCountResponse extends ApiResponse {

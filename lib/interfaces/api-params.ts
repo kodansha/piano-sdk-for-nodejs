@@ -1,4 +1,4 @@
-type OrderDirection = "asc" | "desc";
+type OrderDirection = 'asc' | 'desc';
 
 export interface PublisherUserCreateParams {
   uid: string;
@@ -114,5 +114,13 @@ export interface PublisherUserUpdateParams {
 export interface PublisherUserAccessCheckParams {
   uid: string;
   rid: string;
+  cross_app?: boolean;
+}
+
+export interface PublisherUserAccessListParams {
+  uid: string;
+  expand_bundle?: boolean;
+  offset: number;
+  limit: number;
   cross_app?: boolean;
 }

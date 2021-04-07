@@ -1,13 +1,13 @@
-import request, { Response } from "request";
+import fetch, { Response } from 'node-fetch';
+import { URLSearchParams } from 'url';
 
-import { Environment } from "../interfaces/client";
-import { ApiResponse } from "../interfaces/api-response";
-import { ApiError } from "../interfaces/api-error";
+import { Environment } from '../interfaces/client';
+import { ApiResponse } from '../interfaces/api-response';
 
-const usBaseUrl = "https://api.piano.io/api/v3";
-const auBaseUrl = "https://api-au.piano.io/api/v3";
-const apBaseUrl = "https://api-ap.piano.io/api/v3";
-const sandboxBaseUrl = "https://sandbox.piano.io/api/v3";
+const usBaseUrl = 'https://api.piano.io/api/v3';
+const auBaseUrl = 'https://api-au.piano.io/api/v3';
+const apBaseUrl = 'https://api-ap.piano.io/api/v3';
+const sandboxBaseUrl = 'https://sandbox.piano.io/api/v3';
 
 /**
  * Make HTTP request to Piano
@@ -18,62 +18,48 @@ const sandboxBaseUrl = "https://sandbox.piano.io/api/v3";
  * @param environment - API environment
  * @returns Response object wrapped in promise
  */
-export const httpRequest = (
-  method: "get" | "post",
+export const httpRequest = async (
+  method: 'get' | 'post',
   path: string,
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   requestParams: any,
   environment: Environment
 ): Promise<ApiResponse> => {
   const baseUrl =
-    environment == "us"
+    environment == 'us'
       ? usBaseUrl
-      : environment == "au"
+      : environment == 'au'
       ? auBaseUrl
-      : environment == "ap"
+      : environment == 'ap'
       ? apBaseUrl
       : sandboxBaseUrl;
 
   const endpoint = `${baseUrl}${path}`;
-  console.log(endpoint);
 
-  const callback = (
-    resolve: (apiResponse: ApiResponse) => any,
-    reject: (apiError: ApiError) => any
-  ) => (error: any, _response: Response, body: any) => {
-    if (error) {
-      reject({ detail: error });
-    }
+  let response: Response;
 
-    try {
-      const bodyData = JSON.parse(body) as ApiResponse;
+  switch (method) {
+    case 'get':
+      response = await fetch(
+        `${endpoint}?${new URLSearchParams(requestParams)}`
+      );
+      break;
+    case 'post':
+      response = await fetch(endpoint, {
+        method: 'POST',
+        body: new URLSearchParams(requestParams),
+      });
+      break;
+    default:
+      throw new Error('Unsupported method');
+  }
 
-      if (bodyData.code != 0) {
-        reject({
-          code: bodyData.code,
-          message: bodyData.message,
-          detail: bodyData,
-        });
-      }
-      resolve(bodyData);
-    } catch (e) {
-      reject({ detail: e });
-    }
-  };
+  const apiResponse = (await response.json()) as ApiResponse;
 
-  return new Promise<any>((resolve, reject) => {
-    switch (method) {
-      case "get":
-        request.get(endpoint, { qs: requestParams }, callback(resolve, reject));
-        break;
-      case "post":
-        request.post(
-          endpoint,
-          { form: requestParams },
-          callback(resolve, reject)
-        );
-        break;
-      default:
-        break;
-    }
-  });
+  if (apiResponse.code != 0) {
+    console.log(apiResponse);
+    throw new Error(apiResponse.message);
+  }
+
+  return apiResponse;
 };

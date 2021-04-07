@@ -1,11 +1,17 @@
-import { Piano } from "../../../piano";
-import { httpRequest } from "../../../utils/http-request";
-import { Active } from "./active";
-import { Access as IAccess } from "../../../interfaces/aceess";
-import { PublisherUserAccessCheckParams } from "../../../interfaces/api-params";
-import { PublisherUserAccessCheckResponse } from "../../../interfaces/api-response";
+import { Piano } from '../../../piano';
+import { httpRequest } from '../../../utils/http-request';
+import { Active } from './active';
+import { Access as IAccess } from '../../../interfaces/access';
+import {
+  PublisherUserAccessCheckParams,
+  PublisherUserAccessListParams,
+} from '../../../interfaces/api-params';
+import {
+  PublisherUserAccessCheckResponse,
+  PublisherUserAccessListResponse,
+} from '../../../interfaces/api-response';
 
-const ENDPOINT_PATH_PREFIX = "/publisher/user/access";
+const ENDPOINT_PATH_PREFIX = '/publisher/user/access';
 
 export class Access {
   private readonly piano: Piano;
@@ -23,12 +29,28 @@ export class Access {
    */
   public async check(params: PublisherUserAccessCheckParams): Promise<IAccess> {
     const apiResponse = (await httpRequest(
-      "post",
+      'post',
       `${ENDPOINT_PATH_PREFIX}/check`,
       this.piano.mergeParams(params),
       this.piano.environment
     )) as PublisherUserAccessCheckResponse;
 
     return apiResponse.access;
+  }
+
+  /**
+   * Lists a user's access
+   *
+   * @see https://docs.piano.io/api?endpoint=get~2F~2Fpublisher~2Fuser~2Faccess~2Flist
+   */
+  public async list(params: PublisherUserAccessListParams): Promise<IAccess[]> {
+    const apiResponse = (await httpRequest(
+      'get',
+      `${ENDPOINT_PATH_PREFIX}/list`,
+      this.piano.mergeParams(params),
+      this.piano.environment
+    )) as PublisherUserAccessListResponse;
+
+    return apiResponse.accesses;
   }
 }

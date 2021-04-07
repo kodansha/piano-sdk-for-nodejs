@@ -1,10 +1,9 @@
-import { Publisher } from "./publisher";
-import { Environment } from "./interfaces/client";
+import { Publisher } from './publisher';
+import { Environment } from './interfaces/client';
 
-export * from "./interfaces/api-error";
-export * from "./interfaces/api-params";
-export * from "./interfaces/api-response";
-export * from "./interfaces/user";
+export * from './interfaces/api-params';
+export * from './interfaces/api-response';
+export * from './interfaces/user';
 
 export class Piano {
   private readonly apiToken: string;
@@ -21,6 +20,7 @@ export class Piano {
     this.publisher = new Publisher(this);
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   public mergeParams(params: any): any {
     return {
       api_token: this.apiToken,
