@@ -6,15 +6,23 @@ export * from './interfaces/api-response';
 export * from './interfaces/user';
 
 export class Piano {
-  private readonly apiToken: string;
   private readonly aid: string;
+  private readonly apiToken: string;
 
   public readonly environment: Environment;
   public readonly publisher: Publisher;
 
-  constructor(apiToken: string, aid: string, environment: Environment) {
-    this.apiToken = apiToken;
+  constructor({
+    aid,
+    apiToken,
+    environment,
+  }: {
+    aid: string;
+    apiToken: string;
+    environment: Environment;
+  }) {
     this.aid = aid;
+    this.apiToken = apiToken;
     this.environment = environment;
 
     this.publisher = new Publisher(this);
@@ -23,8 +31,8 @@ export class Piano {
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   public mergeParams(params: any): any {
     return {
-      api_token: this.apiToken,
       aid: this.aid,
+      api_token: this.apiToken,
       ...params,
     };
   }

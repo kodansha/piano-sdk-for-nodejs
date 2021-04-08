@@ -31,11 +31,11 @@ The following example demonstrates fetching a user data which has uid: `abcdefg`
 import Piano from "piano-sdk"
 
 // Initialize SDK with your API Token and Application Id
-const piano = new Piano(
-  "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", // Your API Token
-  "xxxxxxxxxx", // Your Application ID
-  "us" // API environment
-);
+const piano = new Piano({
+  aid: 'xxxxxxxxxx', // Your Application ID
+  apiToken: '', // Your API Token
+  environment: 'us', // API environment
+});
 
 (async () => {
   try {
