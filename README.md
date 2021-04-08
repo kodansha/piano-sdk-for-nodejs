@@ -16,7 +16,7 @@ npm install </path/to/this-package/>
 
 ## Sending a Request
 
-You must have API Token (`api_token`) and Application ID (`aid`) to send a requests.
+You must have API Token (`apiToken`) and Application ID (`aid`) to send a requests.
 
 Also, you must pick an API environment from the followings (See ["Environments" section on this page](https://docs.piano.io/api/) for details):
 
