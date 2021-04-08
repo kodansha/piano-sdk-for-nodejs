@@ -8,10 +8,8 @@ Note: This package is incomplete and experimental. It supports only a few APIs f
 
 ## Installation
 
-Install from your local path as this package has not been listed on NPM yet.
-
 ```shell
-npm install </path/to/this-package/>
+npm install piano-sdk
 ```
 
 ## Sending a Request
