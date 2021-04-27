@@ -1,8 +1,10 @@
 import { Publisher } from './publisher';
 import { Environment } from './interfaces/client';
 
+export * from './interfaces/access';
 export * from './interfaces/api-params';
 export * from './interfaces/api-response';
+export * from './interfaces/client';
 export * from './interfaces/user';
 
 export class Piano {
