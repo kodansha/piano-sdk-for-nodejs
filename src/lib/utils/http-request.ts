@@ -17,6 +17,7 @@ const sandboxBaseUrl = 'https://sandbox.piano.io/api/v3';
  * @param requestParams - Params for a request
  * @param environment - API environment
  * @returns Response object wrapped in promise
+ * @throws Error - occurs when an API request fails with non-zero code
  */
 export const httpRequest = async (
   method: 'get' | 'post',
