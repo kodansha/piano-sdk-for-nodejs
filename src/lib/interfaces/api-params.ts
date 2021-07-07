@@ -124,3 +124,14 @@ export interface PublisherUserAccessListParams {
   limit: number;
   cross_app?: boolean;
 }
+
+export interface PublisherSubscriptionListPrarams {
+  type?: string;
+  start_date?: string;
+  end_date?: string;
+  q?: string;
+  offset: number;
+  limit: number;
+  select_by?: string;
+  status?: string;
+}
