@@ -1,9 +1,6 @@
+import { List } from './list';
 import { Subscription } from './subscription';
 
-export interface SubscriptionList {
-  limit: number;
-  offset: number;
-  total: number;
-  count: number;
+export interface SubscriptionList extends List {
   subscriptions: Subscription[];
 }

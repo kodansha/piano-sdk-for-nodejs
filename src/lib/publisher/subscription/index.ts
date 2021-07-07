@@ -1,6 +1,6 @@
 import { Piano } from '../../piano';
 import { PublisherSubscriptionListPrarams } from '../../interfaces/api-params';
-import { SubscriptionList } from '../../interfaces/subscription-list';
+import { SubscriptionList as ISubscriptionList } from '../../interfaces/subscription-list';
 import { httpRequest } from '../../utils/http-request';
 import { PublisherSubscriptionListResponse } from '../../interfaces/api-response';
 
@@ -19,7 +19,7 @@ export class Subscription {
    */
   public async list(
     params: PublisherSubscriptionListPrarams
-  ): Promise<SubscriptionList> {
+  ): Promise<ISubscriptionList> {
     const apiResponse = (await httpRequest(
       'get',
       `${ENDPOINT_PATH_PREFIX}/list`,
