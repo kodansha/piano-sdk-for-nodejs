@@ -7,10 +7,7 @@ import { PublisherSubscriptionListResponse } from '../../interfaces/api-response
 const ENDPOINT_PATH_PREFIX = '/publisher/subscription';
 
 export class Subscription {
-  private readonly piano: Piano;
-  constructor(piano: Piano) {
-    this.piano = piano;
-  }
+  constructor(private readonly piano: Piano) {}
 
   /**
    * Lists subscriptions.

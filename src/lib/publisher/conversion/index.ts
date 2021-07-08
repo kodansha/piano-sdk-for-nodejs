@@ -7,10 +7,7 @@ import { PublisherConversionListResponse } from '../../interfaces/api-response';
 const ENDPOINT_PATH_PREFIX = '/publisher/conversion';
 
 export class Conversion {
-  private readonly piano: Piano;
-  constructor(piano: Piano) {
-    this.piano = piano;
-  }
+  constructor(private readonly piano: Piano) {}
 
   /**
    * Lists conversions for an app
