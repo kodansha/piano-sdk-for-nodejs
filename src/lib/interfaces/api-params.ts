@@ -141,3 +141,13 @@ export interface PublisherConversionListPrarams {
   offset: number;
   limit: number;
 }
+
+export interface PublisherExportCreateTransactionsReportV2Params {
+  export_name: string;
+  transactions_type?: 'all' | 'purchases' | 'refunds';
+  order_by?: string;
+  order_direction?: OrderDirection;
+  q?: string;
+  date_from?: string;
+  date_to?: string;
+}

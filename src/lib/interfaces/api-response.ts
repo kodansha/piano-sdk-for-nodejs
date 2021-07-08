@@ -2,6 +2,7 @@ import { User } from './user';
 import { Access } from './access';
 import { SubscriptionList } from './subscription-list';
 import { ConversionList } from './conversion-list';
+import { Export } from './export';
 
 export interface ApiResponse {
   code: number;
@@ -48,3 +49,8 @@ export interface PublisherSubscriptionListResponse
 export interface PublisherConversionListResponse
   extends ApiResponse,
     ConversionList {}
+
+export interface PublisherExportCreateTransactionsReportV2Response
+  extends ApiResponse {
+  export: Export;
+}
