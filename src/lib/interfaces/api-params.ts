@@ -135,3 +135,9 @@ export interface PublisherSubscriptionListPrarams {
   select_by?: string;
   status?: string;
 }
+
+export interface PublisherConversionListPrarams {
+  uid?: string;
+  offset: number;
+  limit: number;
+}

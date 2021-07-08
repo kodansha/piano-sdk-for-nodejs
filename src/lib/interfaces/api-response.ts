@@ -1,6 +1,7 @@
 import { User } from './user';
 import { Access } from './access';
 import { SubscriptionList } from './subscription-list';
+import { ConversionList } from './conversion-list';
 
 export interface ApiResponse {
   code: number;
@@ -43,3 +44,7 @@ export interface PublisherUserAccessActiveCountResponse extends ApiResponse {
 export interface PublisherSubscriptionListResponse
   extends ApiResponse,
     SubscriptionList {}
+
+export interface PublisherConversionListResponse
+  extends ApiResponse,
+    ConversionList {}
