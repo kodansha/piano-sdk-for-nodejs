@@ -54,3 +54,8 @@ export interface PublisherExportCreateTransactionsReportV2Response
   extends ApiResponse {
   export: Export;
 }
+
+export interface PublisherExportCreateSubscriptionDetailsReportV2Response
+  extends ApiResponse {
+  export: Export;
+}
