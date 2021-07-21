@@ -50,7 +50,19 @@ export interface PublisherConversionListResponse
   extends ApiResponse,
     ConversionList {}
 
+export interface PublisherExportGetResponse extends ApiResponse {
+  export: Export;
+}
+export interface PublisherExportDownloadResponse extends ApiResponse {
+  data: string;
+}
+
 export interface PublisherExportCreateTransactionsReportV2Response
+  extends ApiResponse {
+  export: Export;
+}
+
+export interface PublisherExportCreateSubscriptionDetailsReportV2Response
   extends ApiResponse {
   export: Export;
 }

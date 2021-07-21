@@ -142,6 +142,14 @@ export interface PublisherConversionListPrarams {
   limit: number;
 }
 
+export interface PublisherExportGetParams {
+  export_id: string;
+}
+
+export interface PublisherExportDownloadParams {
+  export_id: string;
+}
+
 export interface PublisherExportCreateTransactionsReportV2Params {
   export_name: string;
   transactions_type?: 'all' | 'purchases' | 'refunds';
@@ -150,4 +158,30 @@ export interface PublisherExportCreateTransactionsReportV2Params {
   q?: string;
   date_from?: string;
   date_to?: string;
+}
+
+export interface PublisherExportCreateSubscriptionDetailsReportV2Params {
+  export_name: string;
+  q?: string;
+  search_new_subscriptions?: boolean;
+  new_subscriptions_created_from?: string;
+  new_subscriptions_created_to?: string;
+  search_active_now_subscriptions?: boolean;
+  active_now_subscriptions_statuses?: any[];
+  search_inactive_subscriptions?: boolean;
+  inactive_subscriptions_statuses?: any[];
+  subscriptions_inactive_from?: string;
+  subscriptions_inactive_to?: string;
+  search_updated_subscriptions?: boolean;
+  updated_subscriptions_statuses?: any[];
+  subscriptions_updated_from?: string;
+  subscriptions_updated_to?: string;
+  search_auto_renewing_subscriptions?: boolean;
+  subscriptions_auto_renewing?: boolean;
+  search_subscriptions_by_next_billing_date?: boolean;
+  subscriptions_next_billing_date_from?: string;
+  subscriptions_next_billing_date_to?: string;
+  search_subscriptions_by_terms?: boolean;
+  subscriptions_terms?: any[];
+  subscriptions_term_types?: any[];
 }
