@@ -146,6 +146,10 @@ export interface PublisherExportGetParams {
   export_id: string;
 }
 
+export interface PublisherExportDownloadParams {
+  export_id: string;
+}
+
 export interface PublisherExportCreateTransactionsReportV2Params {
   export_name: string;
   transactions_type?: 'all' | 'purchases' | 'refunds';

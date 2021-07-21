@@ -1,5 +1,11 @@
-import { PublisherExportGetParams } from '../../interfaces/api-params';
-import { PublisherExportGetResponse } from '../../interfaces/api-response';
+import {
+  PublisherExportDownloadParams,
+  PublisherExportGetParams,
+} from '../../interfaces/api-params';
+import {
+  PublisherExportDownloadResponse,
+  PublisherExportGetResponse,
+} from '../../interfaces/api-response';
 import { Export as IExport } from '../../interfaces/export';
 import { Piano } from '../../piano';
 import { httpRequest } from '../../utils/http-request';
@@ -28,5 +34,24 @@ export class Export {
     )) as PublisherExportGetResponse;
 
     return apiResponse.export;
+  }
+
+  /**
+   * Get URL for download
+   *
+   * @see https://docs.piano.io/api?endpoint=get~2F~2Fpublisher~2Fexport~2Fdownload
+   */
+
+  public async download(
+    params: PublisherExportDownloadParams
+  ): Promise<string> {
+    const apiResponse = (await httpRequest(
+      'get',
+      `${ENDPOINT_PATH_PREFIX}/download`,
+      this.piano.mergeParams(params),
+      this.piano.environment
+    )) as PublisherExportDownloadResponse;
+
+    return apiResponse.data;
   }
 }
