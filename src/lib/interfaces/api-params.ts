@@ -125,7 +125,7 @@ export interface PublisherUserAccessListParams {
   cross_app?: boolean;
 }
 
-export interface PublisherSubscriptionListPrarams {
+export interface PublisherSubscriptionListParams {
   type?: string;
   start_date?: string;
   end_date?: string;
@@ -136,7 +136,7 @@ export interface PublisherSubscriptionListPrarams {
   status?: string;
 }
 
-export interface PublisherConversionListPrarams {
+export interface PublisherConversionListParams {
   uid?: string;
   offset: number;
   limit: number;
