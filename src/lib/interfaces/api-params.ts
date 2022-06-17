@@ -136,6 +136,13 @@ export interface PublisherSubscriptionListParams {
   status?: string;
 }
 
+export interface PublisherSubscriptionUpdateParams {
+  subscription_id: string;
+  next_bill_date?: string;
+  auto_renew?: boolean;
+  // TODO:
+}
+
 export interface PublisherConversionListParams {
   uid?: string;
   offset: number;
