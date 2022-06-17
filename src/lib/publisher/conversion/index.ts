@@ -1,7 +1,7 @@
 import { Piano } from '../../piano';
 import { ConversionList as IConversionList } from '../../interfaces/conversion-list';
 import { httpRequest } from '../../utils/http-request';
-import { PublisherConversionListPrarams } from '../../interfaces/api-params';
+import { PublisherConversionListParams } from '../../interfaces/api-params';
 import { PublisherConversionListResponse } from '../../interfaces/api-response';
 
 const ENDPOINT_PATH_PREFIX = '/publisher/conversion';
@@ -15,7 +15,7 @@ export class Conversion {
    * @see https://docs.piano.io/api?endpoint=get~2F~2Fpublisher~2Fconversion~2Flist
    */
   public async list(
-    params: PublisherConversionListPrarams
+    params: PublisherConversionListParams
   ): Promise<IConversionList> {
     const apiResponse = (await httpRequest(
       'get',
