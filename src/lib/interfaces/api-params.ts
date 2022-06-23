@@ -126,6 +126,7 @@ export interface PublisherUserAccessListParams {
 }
 
 export interface PublisherSubscriptionListParams {
+  uid?: string;
   type?: string;
   start_date?: string;
   end_date?: string;
