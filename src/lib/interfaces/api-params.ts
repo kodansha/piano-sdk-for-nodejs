@@ -137,6 +137,14 @@ export interface PublisherSubscriptionListParams {
   status?: string;
 }
 
+export interface PublisherSubscriptionUpdateParams {
+  subscription_id: string;
+  next_bill_date?: string;
+  auto_renew?: boolean;
+  payment_method_id?: boolean;
+  user_address_id?: boolean;
+}
+
 export interface PublisherConversionListParams {
   uid?: string;
   offset: number;

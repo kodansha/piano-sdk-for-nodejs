@@ -1,8 +1,14 @@
 import { Piano } from '../../piano';
-import { PublisherSubscriptionListParams } from '../../interfaces/api-params';
+import {
+  PublisherSubscriptionListParams,
+  PublisherSubscriptionUpdateParams,
+} from '../../interfaces/api-params';
 import { SubscriptionList as ISubscriptionList } from '../../interfaces/subscription-list';
 import { httpRequest } from '../../utils/http-request';
-import { PublisherSubscriptionListResponse } from '../../interfaces/api-response';
+import {
+  PublisherSubscriptionListResponse,
+  PublisherSubscriptionUpdateResponse,
+} from '../../interfaces/api-response';
 
 const ENDPOINT_PATH_PREFIX = '/publisher/subscription';
 
@@ -33,5 +39,25 @@ export class Subscription {
       count,
       subscriptions,
     };
+  }
+
+  /**
+   * Updates a subscription.
+   *
+   * @see https://docs.piano.io/api/?endpoint=post~2F~2Fpublisher~2Fsubscription~2Fupdate
+   */
+  public async update(
+    params: PublisherSubscriptionUpdateParams
+  ): Promise<boolean> {
+    const apiResponse = (await httpRequest(
+      'post',
+      `${ENDPOINT_PATH_PREFIX}/update`,
+      this.piano.mergeParams(params),
+      this.piano.environment
+    )) as PublisherSubscriptionUpdateResponse;
+
+    const { data } = apiResponse;
+
+    return data;
   }
 }
