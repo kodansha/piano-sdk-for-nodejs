@@ -1,6 +1,6 @@
 import { User } from './user';
 import { Access } from './access';
-import { SubscriptionList } from './subscription-list';
+import { UserSubscriptionList } from './user-subscription-list';
 import { ConversionList } from './conversion-list';
 import { Export } from './export';
 
@@ -44,7 +44,7 @@ export interface PublisherUserAccessActiveCountResponse extends ApiResponse {
 
 export interface PublisherSubscriptionListResponse
   extends ApiResponse,
-    SubscriptionList {}
+    UserSubscriptionList {}
 
 export interface PublisherSubscriptionUpdateResponse extends ApiResponse {
   data: boolean;

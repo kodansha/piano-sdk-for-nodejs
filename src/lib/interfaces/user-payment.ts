@@ -1,4 +1,4 @@
-import { Subscription } from './subscription';
+import { UserSubscription } from './user-subscription';
 import { Term } from './term';
 
 export interface UserPayment {
@@ -8,7 +8,7 @@ export interface UserPayment {
   amount: number;
   price: string;
   currency: string;
-  subscription: Subscription;
+  subscription: UserSubscription;
   payment_method: string;
   upi_ext_customer_id: string;
   upi_ext_customer_id_label: string | null;

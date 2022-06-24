@@ -3,7 +3,7 @@ import {
   PublisherSubscriptionListParams,
   PublisherSubscriptionUpdateParams,
 } from '../../interfaces/api-params';
-import { SubscriptionList as ISubscriptionList } from '../../interfaces/subscription-list';
+import { UserSubscriptionList as IUserSubscriptionList } from '../../interfaces/user-subscription-list';
 import { httpRequest } from '../../utils/http-request';
 import {
   PublisherSubscriptionListResponse,
@@ -22,7 +22,7 @@ export class Subscription {
    */
   public async list(
     params: PublisherSubscriptionListParams
-  ): Promise<ISubscriptionList> {
+  ): Promise<IUserSubscriptionList> {
     const apiResponse = (await httpRequest(
       'get',
       `${ENDPOINT_PATH_PREFIX}/list`,
