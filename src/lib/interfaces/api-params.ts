@@ -126,6 +126,7 @@ export interface PublisherUserAccessListParams {
 }
 
 export interface PublisherSubscriptionListParams {
+  uid?: string;
   type?: string;
   start_date?: string;
   end_date?: string;
@@ -134,6 +135,14 @@ export interface PublisherSubscriptionListParams {
   limit: number;
   select_by?: string;
   status?: string;
+}
+
+export interface PublisherSubscriptionUpdateParams {
+  subscription_id: string;
+  next_bill_date?: string;
+  auto_renew?: boolean;
+  payment_method_id?: boolean;
+  user_address_id?: boolean;
 }
 
 export interface PublisherConversionListParams {

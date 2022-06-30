@@ -1,6 +1,6 @@
 import { Access } from './access';
-import { Subscription } from './subscription';
 import { Term } from './term';
+import { TermConversionSubscription } from './term-conversion-subscription';
 import { UserPayment } from './user-payment';
 import { UserPaymentInfo } from './user-payment-info';
 
@@ -14,5 +14,5 @@ export interface Conversion {
   browser_id: string;
   user_payment: UserPayment;
   user_payment_info: UserPaymentInfo;
-  subscription: Subscription;
+  subscription: TermConversionSubscription;
 }
