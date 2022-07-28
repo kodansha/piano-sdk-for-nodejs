@@ -125,6 +125,10 @@ export interface PublisherUserAccessListParams {
   cross_app?: boolean;
 }
 
+export interface PublisherSubscriptionGetParams {
+  subscription_id: string;
+}
+
 export interface PublisherSubscriptionListParams {
   uid?: string;
   type?: string;

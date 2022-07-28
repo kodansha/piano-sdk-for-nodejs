@@ -3,6 +3,7 @@ import { Access } from './access';
 import { UserSubscriptionList } from './user-subscription-list';
 import { ConversionList } from './conversion-list';
 import { Export } from './export';
+import { UserSubscription } from './user-subscription';
 
 export interface ApiResponse {
   code: number;
@@ -40,6 +41,10 @@ export interface PublisherUserAccessListResponse extends ApiResponse {
 
 export interface PublisherUserAccessActiveCountResponse extends ApiResponse {
   data: number;
+}
+
+export interface PublisherSubscriptionGetResponse extends ApiResponse {
+  subscription: UserSubscription
 }
 
 export interface PublisherSubscriptionListResponse
