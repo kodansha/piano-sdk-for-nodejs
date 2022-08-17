@@ -1,7 +1,6 @@
 import { Piano } from '../../../piano';
 import { httpRequest } from '../../../utils/http-request';
 import { Active } from './active';
-import { Access as IAccess } from '../../../interfaces/access';
 import {
   PublisherUserAccessCheckParams,
   PublisherUserAccessListParams,
@@ -10,6 +9,7 @@ import {
   PublisherUserAccessCheckResponse,
   PublisherUserAccessListResponse,
 } from '../../../interfaces/api-response';
+import { AccessDTO } from '../../../interfaces/access-dto';
 
 const ENDPOINT_PATH_PREFIX = '/publisher/user/access';
 
@@ -27,7 +27,7 @@ export class Access {
    *
    * @see https://docs.piano.io/api?endpoint=get~2F~2Fpublisher~2Fuser~2Faccess~2Fcheck
    */
-  public async check(params: PublisherUserAccessCheckParams): Promise<IAccess> {
+  public async check(params: PublisherUserAccessCheckParams): Promise<AccessDTO> {
     const apiResponse = (await httpRequest(
       'post',
       `${ENDPOINT_PATH_PREFIX}/check`,
@@ -43,7 +43,7 @@ export class Access {
    *
    * @see https://docs.piano.io/api?endpoint=get~2F~2Fpublisher~2Fuser~2Faccess~2Flist
    */
-  public async list(params: PublisherUserAccessListParams): Promise<IAccess[]> {
+  public async list(params: PublisherUserAccessListParams): Promise<AccessDTO[]> {
     const apiResponse = (await httpRequest(
       'get',
       `${ENDPOINT_PATH_PREFIX}/list`,

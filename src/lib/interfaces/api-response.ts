@@ -1,9 +1,9 @@
 import { User } from './user';
-import { Access } from './access';
 import { UserSubscriptionList } from './user-subscription-list';
 import { ConversionList } from './conversion-list';
 import { Export } from './export';
 import { UserSubscription } from './user-subscription';
+import { AccessDTO } from './access-dto';
 
 export interface ApiResponse {
   code: number;
@@ -32,11 +32,11 @@ export interface PublisherUserUpdateResponse extends ApiResponse {
 }
 
 export interface PublisherUserAccessCheckResponse extends ApiResponse {
-  access: Access;
+  access: AccessDTO;
 }
 
 export interface PublisherUserAccessListResponse extends ApiResponse {
-  accesses: Access[];
+  accesses: AccessDTO[];
 }
 
 export interface PublisherUserAccessActiveCountResponse extends ApiResponse {
