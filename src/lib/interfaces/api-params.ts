@@ -198,3 +198,8 @@ export interface PublisherExportCreateSubscriptionDetailsReportV2Params {
   subscriptions_terms?: any[];
   subscriptions_term_types?: any[];
 }
+
+export interface PublisherTermChangeGetSubscriptionUpgradeStatusParams {
+  uid: string;
+  subscription_id: string;
+}
