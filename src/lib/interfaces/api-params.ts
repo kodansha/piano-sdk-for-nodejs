@@ -203,3 +203,7 @@ export interface PublisherTermChangeGetSubscriptionUpgradeStatusParams {
   uid: string;
   subscription_id: string;
 }
+
+export interface PublisherTermChangeCancelParams {
+  subscription_from: string;
+}

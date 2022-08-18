@@ -81,3 +81,8 @@ export interface PublisherTermChangeGetSubscriptionUpgradeStatusResponse
   extends ApiResponse {
     subscription_upgrade_status: SubscriptionUpgradeStatus | undefined;
   }
+
+export interface PublisherTermChangeCancelResponse
+  extends ApiResponse {
+    data: boolean;
+  }
