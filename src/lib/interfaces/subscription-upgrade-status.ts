@@ -1,3 +1,10 @@
+export enum SubscriptionUpgradeStatusFlag {
+  PENDING = 0,
+  FAILED = 1,
+  FAILED_CLOSED = 2,
+  SUSPENDED = 3,
+}
+
 export interface SubscriptionUpgradeStatus {
   from_term_name: string;
   to_term_name: string;
@@ -8,7 +15,7 @@ export interface SubscriptionUpgradeStatus {
   create_date_to: string;
   billing_plan_to: string;
   billing_plan_from: string;
-  status: number;
+  status: SubscriptionUpgradeStatusFlag;
   error_message: string;
   prorate_amount: string;
   prorate_refund_amount: string;
