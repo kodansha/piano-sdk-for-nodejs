@@ -20,7 +20,6 @@ export class Change {
    *
    * @see https://docs.piano.io/api/?endpoint=post~2F~2Fpublisher~2Fterm~2Fchange~2FgetSubscriptionUpgradeStatus
    */
-
   public async getSubscriptionUpgradeStatus(params: PublisherTermChangeGetSubscriptionUpgradeStatusParams): Promise<ISubscriptionUpgradeStatus | undefined> {
     const apiResponse = (await httpRequest(
       'post',
