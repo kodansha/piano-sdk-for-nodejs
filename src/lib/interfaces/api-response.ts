@@ -4,6 +4,7 @@ import { ConversionList } from './conversion-list';
 import { Export } from './export';
 import { UserSubscription } from './user-subscription';
 import { AccessDTO } from './access-dto';
+import { SubscriptionUpgradeStatus } from './subscription-upgrade-status';
 
 export interface ApiResponse {
   code: number;
@@ -75,3 +76,13 @@ export interface PublisherExportCreateSubscriptionDetailsReportV2Response
   extends ApiResponse {
   export: Export;
 }
+
+export interface PublisherTermChangeGetSubscriptionUpgradeStatusResponse
+  extends ApiResponse {
+    subscription_upgrade_status: SubscriptionUpgradeStatus | undefined;
+  }
+
+export interface PublisherTermChangeCancelResponse
+  extends ApiResponse {
+    data: boolean;
+  }
