@@ -149,6 +149,11 @@ export interface PublisherSubscriptionUpdateParams {
   user_address_id?: boolean;
 }
 
+export interface PublisherSubscriptionCancelParams {
+  subscription_id: string;
+  refund_last_payment: boolean;
+}
+
 export interface PublisherConversionListParams {
   uid?: string;
   offset: number;

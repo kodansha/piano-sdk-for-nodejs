@@ -56,6 +56,10 @@ export interface PublisherSubscriptionUpdateResponse extends ApiResponse {
   data: boolean;
 }
 
+export interface PublisherSubscriptionCancelResponse extends ApiResponse {
+  data: boolean;
+}
+
 export interface PublisherConversionListResponse
   extends ApiResponse,
     ConversionList {}

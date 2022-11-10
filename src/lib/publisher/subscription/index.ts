@@ -1,5 +1,6 @@
 import { Piano } from '../../piano';
 import {
+  PublisherSubscriptionCancelParams,
   PublisherSubscriptionGetParams,
   PublisherSubscriptionListParams,
   PublisherSubscriptionUpdateParams,
@@ -7,6 +8,7 @@ import {
 import { UserSubscriptionList as IUserSubscriptionList } from '../../interfaces/user-subscription-list';
 import { httpRequest } from '../../utils/http-request';
 import {
+  PublisherSubscriptionCancelResponse,
   PublisherSubscriptionGetResponse,
   PublisherSubscriptionListResponse,
   PublisherSubscriptionUpdateResponse,
@@ -78,6 +80,26 @@ export class Subscription {
       this.piano.mergeParams(params),
       this.piano.environment
     )) as PublisherSubscriptionUpdateResponse;
+
+    const { data } = apiResponse;
+
+    return data;
+  }
+
+  /**
+   * Cancels a subscription.
+   *
+   * @see https://docs.piano.io/api?endpoint=post~2F~2Fpublisher~2Fsubscription~2Fcancel
+   */
+  public async cancel(
+    params: PublisherSubscriptionCancelParams
+  ): Promise<boolean> {
+    const apiResponse = (await httpRequest(
+      'post',
+      `${ENDPOINT_PATH_PREFIX}/cancel`,
+      this.piano.mergeParams(params),
+      this.piano.environment
+    )) as PublisherSubscriptionCancelResponse;
 
     const { data } = apiResponse;
 
