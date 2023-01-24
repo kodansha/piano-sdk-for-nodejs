@@ -6,6 +6,7 @@ export * from './interfaces/api-params';
 export * from './interfaces/api-response';
 export * from './interfaces/client';
 export * from './interfaces/user';
+export * from './interfaces/subscription-log-item';
 
 export class Piano {
   private readonly aid: string;
