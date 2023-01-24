@@ -37,12 +37,23 @@ export const httpRequest = async (
 
   const endpoint = `${baseUrl}${path}`;
 
+  const urlParams = new URLSearchParams();
+  for (const [key, value] of Object.entries(requestParams)) {
+    if (Array.isArray(value)) {
+      for (const entry of value) {
+        urlParams.append(key, entry);
+      }
+    } else {
+      urlParams.append(key, value as string);
+    }
+  }
+
   const response =
     method == 'get'
-      ? await fetch(`${endpoint}?${new URLSearchParams(requestParams)}`)
+      ? await fetch(`${endpoint}?${urlParams}`)
       : await fetch(endpoint, {
           method: 'POST',
-          body: new URLSearchParams(requestParams),
+          body: urlParams,
         });
 
   const apiResponse = (await response.json()) as ApiResponse;
