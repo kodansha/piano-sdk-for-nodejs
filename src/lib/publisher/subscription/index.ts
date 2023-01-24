@@ -3,14 +3,17 @@ import {
   PublisherSubscriptionCancelParams,
   PublisherSubscriptionGetParams,
   PublisherSubscriptionListParams,
+  PublisherSubscriptionSearchParams,
   PublisherSubscriptionUpdateParams,
 } from '../../interfaces/api-params';
 import { UserSubscriptionList as IUserSubscriptionList } from '../../interfaces/user-subscription-list';
+import { SubscriptionLogItemList as ISubscriptionLogItemList } from '../../interfaces/subscription-log-item-list';
 import { httpRequest } from '../../utils/http-request';
 import {
   PublisherSubscriptionCancelResponse,
   PublisherSubscriptionGetResponse,
   PublisherSubscriptionListResponse,
+  PublisherSubscriptionLogItemListResponse,
   PublisherSubscriptionUpdateResponse,
 } from '../../interfaces/api-response';
 import { UserSubscription as IUserSubscription } from '../../interfaces/user-subscription';
@@ -63,6 +66,32 @@ export class Subscription {
       total,
       count,
       subscriptions,
+    };
+  }
+
+  /**
+   * Searches subscriptions.
+   *
+   * @see https://docs.piano.io/api?endpoint=get~2F~2Fpublisher~2Fsubscription~2Fsearch
+   */
+  public async search(
+    params: PublisherSubscriptionSearchParams
+  ): Promise<ISubscriptionLogItemList> {
+    const apiResponse = (await httpRequest(
+      'get',
+      `${ENDPOINT_PATH_PREFIX}/search`,
+      this.piano.mergeParams(params),
+      this.piano.environment
+    )) as PublisherSubscriptionLogItemListResponse;
+
+    const { limit, offset, total, count, subscriptionLogItems } = apiResponse;
+
+    return {
+      limit,
+      offset,
+      total,
+      count,
+      subscriptionLogItems,
     };
   }
 

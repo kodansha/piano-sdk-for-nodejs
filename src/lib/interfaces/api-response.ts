@@ -5,6 +5,7 @@ import { Export } from './export';
 import { UserSubscription } from './user-subscription';
 import { AccessDTO } from './access-dto';
 import { SubscriptionUpgradeStatus } from './subscription-upgrade-status';
+import { SubscriptionLogItemList } from './subscription-log-item-list';
 
 export interface ApiResponse {
   code: number;
@@ -51,6 +52,10 @@ export interface PublisherSubscriptionGetResponse extends ApiResponse {
 export interface PublisherSubscriptionListResponse
   extends ApiResponse,
     UserSubscriptionList {}
+
+export interface PublisherSubscriptionLogItemListResponse
+  extends ApiResponse,
+    SubscriptionLogItemList {}
 
 export interface PublisherSubscriptionUpdateResponse extends ApiResponse {
   data: boolean;

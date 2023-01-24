@@ -1,4 +1,8 @@
 type OrderDirection = 'asc' | 'desc';
+type ActiveNowSubscriptionStatus = 'active' | 'failedAndRetry';
+type InactiveSubscriptionStatus = 'cancelled' | 'paymentFailure' | 'expired' | 'completed' | 'upgraded';
+type UpdatedSubscriptionStatus = 'renewed';
+type SubscriptionTermType = 'payment' | 'external' | 'gift';
 
 export interface PublisherUserCreateParams {
   uid: string;
@@ -141,6 +145,35 @@ export interface PublisherSubscriptionListParams {
   status?: string;
 }
 
+export interface PublisherSubscriptionSearchParams {
+  q?: string;
+  offset: number;
+  limit: number;
+  order_by?: string;
+  order_direction?: OrderDirection;
+  search_new_subscriptions?: boolean;
+  new_subscriptions_created_from?: string;
+  new_subscriptions_created_to?: string;
+  search_active_now_subscriptions?: boolean;
+  active_now_subscriptions_statuses?: ActiveNowSubscriptionStatus[];
+  search_inactive_subscriptions?: boolean;
+  inactive_subscriptions_statuses?: InactiveSubscriptionStatus[];
+  subscriptions_inactive_from?: string;
+  subscriptions_inactive_to?: string;
+  search_updated_subscriptions?: boolean;
+  updated_subscriptions_statuses?: UpdatedSubscriptionStatus[];
+  subscriptions_updated_from?: string;
+  subscriptions_updated_to?: string;
+  search_auto_renewing_subscriptions?: boolean;
+  subscriptions_auto_renewing?: boolean;
+  search_subscriptions_by_next_billing_date?: boolean;
+  subscriptions_next_billing_date_from?: string;
+  subscriptions_next_billing_date_to?: string;
+  search_subscriptions_by_terms?: boolean;
+  subscriptions_terms?: string[];
+  subscriptions_term_types?: SubscriptionTermType[];
+}
+
 export interface PublisherSubscriptionUpdateParams {
   subscription_id: string;
   next_bill_date?: string;
@@ -185,13 +218,13 @@ export interface PublisherExportCreateSubscriptionDetailsReportV2Params {
   new_subscriptions_created_from?: string;
   new_subscriptions_created_to?: string;
   search_active_now_subscriptions?: boolean;
-  active_now_subscriptions_statuses?: any[];
+  active_now_subscriptions_statuses?: ActiveNowSubscriptionStatus[];
   search_inactive_subscriptions?: boolean;
-  inactive_subscriptions_statuses?: any[];
+  inactive_subscriptions_statuses?: InactiveSubscriptionStatus[];
   subscriptions_inactive_from?: string;
   subscriptions_inactive_to?: string;
   search_updated_subscriptions?: boolean;
-  updated_subscriptions_statuses?: any[];
+  updated_subscriptions_statuses?: UpdatedSubscriptionStatus[];
   subscriptions_updated_from?: string;
   subscriptions_updated_to?: string;
   search_auto_renewing_subscriptions?: boolean;
@@ -200,8 +233,8 @@ export interface PublisherExportCreateSubscriptionDetailsReportV2Params {
   subscriptions_next_billing_date_from?: string;
   subscriptions_next_billing_date_to?: string;
   search_subscriptions_by_terms?: boolean;
-  subscriptions_terms?: any[];
-  subscriptions_term_types?: any[];
+  subscriptions_terms?: string[];
+  subscriptions_term_types?: SubscriptionTermType[];
 }
 
 export interface PublisherTermChangeGetSubscriptionUpgradeStatusParams {
