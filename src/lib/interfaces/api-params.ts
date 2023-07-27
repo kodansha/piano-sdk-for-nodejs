@@ -197,6 +197,10 @@ export interface PublisherExportGetParams {
   export_id: string;
 }
 
+export interface PublisherExportRunParams {
+  export_id: string;
+}
+
 export interface PublisherExportDownloadParams {
   export_id: string;
 }

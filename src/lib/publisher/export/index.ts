@@ -1,10 +1,12 @@
 import {
   PublisherExportDownloadParams,
   PublisherExportGetParams,
+  PublisherExportRunParams,
 } from '../../interfaces/api-params';
 import {
   PublisherExportDownloadResponse,
   PublisherExportGetResponse,
+  PublisherExportRunResponse,
 } from '../../interfaces/api-response';
 import { Export as IExport } from '../../interfaces/export';
 import { Piano } from '../../piano';
@@ -34,6 +36,23 @@ export class Export {
     )) as PublisherExportGetResponse;
 
     return apiResponse.export;
+  }
+
+  /**
+   * Rerun report generation
+   *
+   * @see https://docs.piano.io/api/?endpoint=get~2F~2Fpublisher~2Fexport~2Frun
+   */
+
+  public async run(params: PublisherExportRunParams): Promise<boolean> {
+    const apiResponse =(await httpRequest(
+      'get',
+      `${ENDPOINT_PATH_PREFIX}/run`,
+      this.piano.mergeParams(params),
+      this.piano.environment
+    )) as PublisherExportRunResponse;
+
+    return apiResponse.data;
   }
 
   /**

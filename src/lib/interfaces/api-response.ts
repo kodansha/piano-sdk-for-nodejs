@@ -72,6 +72,11 @@ export interface PublisherConversionListResponse
 export interface PublisherExportGetResponse extends ApiResponse {
   export: Export;
 }
+
+export interface PublisherExportRunResponse extends ApiResponse {
+  data: boolean;
+}
+
 export interface PublisherExportDownloadResponse extends ApiResponse {
   data: string;
 }
