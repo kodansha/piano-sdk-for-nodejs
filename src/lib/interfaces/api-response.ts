@@ -100,3 +100,7 @@ export interface PublisherTermChangeCancelResponse
   extends ApiResponse {
     data: boolean;
   }
+
+export interface PublisherPaymentMethodGmoRefreshResponse extends ApiResponse {
+  data: boolean;
+}
