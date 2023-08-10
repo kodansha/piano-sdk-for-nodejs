@@ -249,3 +249,9 @@ export interface PublisherTermChangeGetSubscriptionUpgradeStatusParams {
 export interface PublisherTermChangeCancelParams {
   subscription_from: string;
 }
+
+export interface PublisherPaymentMethodGmoRefreshParams {
+  uid: string;
+  upi_ext_payment_id: string;
+  upi_ext_customer_id: string;
+}
