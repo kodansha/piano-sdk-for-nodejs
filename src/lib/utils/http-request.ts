@@ -16,6 +16,7 @@ const sandboxBaseUrl = 'https://sandbox.piano.io/api/v3';
  * @param path - API endpoint path
  * @param requestParams - Params for a request
  * @param environment - API environment
+ * @param headerParams - Header params for the request
  * @returns Response object wrapped in promise
  * @throws Error - occurs when an API request fails with non-zero code
  */
@@ -24,7 +25,9 @@ export const httpRequest = async (
   path: string,
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   requestParams: any,
-  environment: Environment
+  environment: Environment,
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  headerParams?: Record<string, string>
 ): Promise<ApiResponse> => {
   const baseUrl =
     environment == 'us'
@@ -54,6 +57,7 @@ export const httpRequest = async (
       : await fetch(endpoint, {
           method: 'POST',
           body: urlParams,
+          headers: headerParams || {}
         });
 
   const apiResponse = (await response.json()) as ApiResponse;

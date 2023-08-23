@@ -1,4 +1,5 @@
 import { Publisher } from './publisher';
+import { Access } from './access';
 import { Environment } from './interfaces/client';
 
 export * from './interfaces/access';
@@ -14,6 +15,7 @@ export class Piano {
 
   public readonly environment: Environment;
   public readonly publisher: Publisher;
+  public readonly access: Access;
 
   constructor({
     aid,
@@ -29,6 +31,7 @@ export class Piano {
     this.environment = environment;
 
     this.publisher = new Publisher(this);
+    this.access = new Access(this);
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types

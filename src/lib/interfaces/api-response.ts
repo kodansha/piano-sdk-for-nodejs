@@ -104,3 +104,7 @@ export interface PublisherTermChangeCancelResponse
 export interface PublisherPaymentMethodGmoRefreshResponse extends ApiResponse {
   data: boolean;
 }
+
+export interface AccessCheckResponse extends ApiResponse {
+  access: AccessDTO;
+}

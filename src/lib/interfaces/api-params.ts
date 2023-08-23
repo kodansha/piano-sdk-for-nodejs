@@ -255,3 +255,7 @@ export interface PublisherPaymentMethodGmoRefreshParams {
   upi_ext_payment_id: string;
   upi_ext_customer_id: string;
 }
+
+export interface AccessCheckParams {
+  rid: string;
+}
