@@ -32,7 +32,7 @@ export class Export {
       'get',
       `${ENDPOINT_PATH_PREFIX}/get`,
       this.piano.mergeParams(params),
-      this.piano.environment
+      this.piano.baseUrl
     )) as PublisherExportGetResponse;
 
     return apiResponse.export;
@@ -49,7 +49,7 @@ export class Export {
       'get',
       `${ENDPOINT_PATH_PREFIX}/run`,
       this.piano.mergeParams(params),
-      this.piano.environment
+      this.piano.baseUrl
     )) as PublisherExportRunResponse;
 
     return apiResponse.data;
@@ -68,7 +68,7 @@ export class Export {
       'get',
       `${ENDPOINT_PATH_PREFIX}/download`,
       this.piano.mergeParams(params),
-      this.piano.environment
+      this.piano.baseUrl
     )) as PublisherExportDownloadResponse;
 
     return apiResponse.data;

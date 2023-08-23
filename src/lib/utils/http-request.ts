@@ -1,13 +1,7 @@
 import fetch from 'node-fetch';
 import { URLSearchParams } from 'url';
 
-import { Environment } from '../interfaces/client';
 import { ApiResponse } from '../interfaces/api-response';
-
-const usBaseUrl = 'https://api.piano.io/api/v3';
-const auBaseUrl = 'https://api-au.piano.io/api/v3';
-const apBaseUrl = 'https://api-ap.piano.io/api/v3';
-const sandboxBaseUrl = 'https://sandbox.piano.io/api/v3';
 
 /**
  * Make HTTP request to Piano
@@ -15,7 +9,7 @@ const sandboxBaseUrl = 'https://sandbox.piano.io/api/v3';
  * @param method - HTTP method
  * @param path - API endpoint path
  * @param requestParams - Params for a request
- * @param environment - API environment
+ * @param baseUrl - API base
  * @returns Response object wrapped in promise
  * @throws Error - occurs when an API request fails with non-zero code
  */
@@ -24,17 +18,8 @@ export const httpRequest = async (
   path: string,
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   requestParams: any,
-  environment: Environment
+  baseUrl: string
 ): Promise<ApiResponse> => {
-  const baseUrl =
-    environment == 'us'
-      ? usBaseUrl
-      : environment == 'au'
-      ? auBaseUrl
-      : environment == 'ap'
-      ? apBaseUrl
-      : sandboxBaseUrl;
-
   const endpoint = `${baseUrl}${path}`;
 
   const urlParams = new URLSearchParams();

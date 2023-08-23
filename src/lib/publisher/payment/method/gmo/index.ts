@@ -20,7 +20,7 @@ export class Gmo {
       'post',
       `${ENDPOINT_PATH_PREFIX}/refresh`,
       this.piano.mergeParams(params),
-      this.piano.environment
+      this.piano.baseUrl
     )) as PublisherPaymentMethodGmoRefreshResponse;
 
     return apiResponse.data;

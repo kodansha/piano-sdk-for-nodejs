@@ -21,7 +21,7 @@ export class Conversion {
       'get',
       `${ENDPOINT_PATH_PREFIX}/list`,
       this.piano.mergeParams(params),
-      this.piano.environment
+      this.piano.baseUrl
     )) as PublisherConversionListResponse;
 
     const { limit, offset, total, count, conversions } = apiResponse;

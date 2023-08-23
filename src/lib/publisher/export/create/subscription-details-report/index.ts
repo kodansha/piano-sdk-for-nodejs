@@ -23,7 +23,7 @@ export class SubscriptionDetailsReport {
       'post',
       `${ENDPOINT_PATH_PREFIX}/v2`,
       this.piano.mergeParams(params),
-      this.piano.environment
+      this.piano.baseUrl
     )) as PublisherExportCreateSubscriptionDetailsReportV2Response;
 
     return apiResponse.export;

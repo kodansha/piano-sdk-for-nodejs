@@ -25,7 +25,7 @@ export class Change {
       'post',
       `${ENDPOINT_PATH_PREFIX}/getSubscriptionUpgradeStatus`,
       this.piano.mergeParams(params),
-      this.piano.environment
+      this.piano.baseUrl
     )) as PublisherTermChangeGetSubscriptionUpgradeStatusResponse;
 
     return apiResponse.subscription_upgrade_status;
@@ -41,7 +41,7 @@ export class Change {
       'post',
       `${ENDPOINT_PATH_PREFIX}/cancel`,
       this.piano.mergeParams(params),
-      this.piano.environment
+      this.piano.baseUrl
     )) as PublisherTermChangeCancelResponse;
 
     return apiResponse.data;

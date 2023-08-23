@@ -1,32 +1,30 @@
 import { Publisher } from './publisher';
-import { Environment } from './interfaces/client';
 
 export * from './interfaces/access';
 export * from './interfaces/api-params';
 export * from './interfaces/api-response';
-export * from './interfaces/client';
 export * from './interfaces/user';
 export * from './interfaces/subscription-log-item';
 
 export class Piano {
   private readonly aid: string;
   private readonly apiToken: string;
+  public readonly baseUrl: string;
 
-  public readonly environment: Environment;
   public readonly publisher: Publisher;
 
   constructor({
     aid,
     apiToken,
-    environment,
+    baseUrl,
   }: {
     aid: string;
     apiToken: string;
-    environment: Environment;
+    baseUrl: string;
   }) {
     this.aid = aid;
     this.apiToken = apiToken;
-    this.environment = environment;
+    this.baseUrl = baseUrl;
 
     this.publisher = new Publisher(this);
   }

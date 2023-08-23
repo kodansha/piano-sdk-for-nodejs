@@ -16,12 +16,13 @@ npm install piano-sdk
 
 You must have API Token (`apiToken`) and Application ID (`aid`) to send a requests.
 
-Also, you must pick an API environment from the followings (See ["Environments" section on this page](https://docs.piano.io/api/) for details):
+Provide the base URL of an API environment from the followings (See ["Environments" section on this page](https://docs.piano.io/api/) for details):
 
-- `us`
-- `au` - Australia
-- `ap` - Asia-Pacific
-- `sandbox` - Sandbox
+- `https://api.piano.io/api/v3`
+- `https://api-au.piano.io/api/v3` - Australia
+- `https://api-ap.piano.io/api/v3` - Asia-Pacific
+- `https://api-eu.piano.io/api/v3` - Europe
+- `https://sandbox.piano.io/api/v3` - Sandbox
 
 The following example demonstrates fetching a user data which has uid: `abcdefg`:
 
@@ -32,7 +33,7 @@ import Piano from "piano-sdk"
 const piano = new Piano({
   aid: 'xxxxxxxxxx', // Your Application ID
   apiToken: '', // Your API Token
-  environment: 'us', // API environment
+  baseUrl: 'https://api.piano.io/api/v3', // API base url
 });
 
 (async () => {

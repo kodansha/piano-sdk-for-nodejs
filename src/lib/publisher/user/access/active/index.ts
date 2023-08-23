@@ -21,7 +21,7 @@ export class Active {
       "post",
       `${ENDPOINT_PATH_PREFIX}/count`,
       this.piano.mergeParams({}),
-      this.piano.environment
+      this.piano.baseUrl
     )) as PublisherUserAccessActiveCountResponse;
 
     return apiResponse.data;

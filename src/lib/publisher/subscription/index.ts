@@ -35,7 +35,7 @@ export class Subscription {
       'get',
       `${ENDPOINT_PATH_PREFIX}/get`,
       this.piano.mergeParams(params),
-      this.piano.environment
+      this.piano.baseUrl
     )) as PublisherSubscriptionGetResponse;
 
     const { subscription } = apiResponse;
@@ -55,7 +55,7 @@ export class Subscription {
       'get',
       `${ENDPOINT_PATH_PREFIX}/list`,
       this.piano.mergeParams(params),
-      this.piano.environment
+      this.piano.baseUrl
     )) as PublisherSubscriptionListResponse;
 
     const { limit, offset, total, count, subscriptions } = apiResponse;
@@ -81,7 +81,7 @@ export class Subscription {
       'get',
       `${ENDPOINT_PATH_PREFIX}/search`,
       this.piano.mergeParams(params),
-      this.piano.environment
+      this.piano.baseUrl
     )) as PublisherSubscriptionLogItemListResponse;
 
     const { limit, offset, total, count, subscriptionLogItems } = apiResponse;
@@ -107,7 +107,7 @@ export class Subscription {
       'post',
       `${ENDPOINT_PATH_PREFIX}/update`,
       this.piano.mergeParams(params),
-      this.piano.environment
+      this.piano.baseUrl
     )) as PublisherSubscriptionUpdateResponse;
 
     const { data } = apiResponse;
@@ -127,7 +127,7 @@ export class Subscription {
       'post',
       `${ENDPOINT_PATH_PREFIX}/cancel`,
       this.piano.mergeParams(params),
-      this.piano.environment
+      this.piano.baseUrl
     )) as PublisherSubscriptionCancelResponse;
 
     const { data } = apiResponse;

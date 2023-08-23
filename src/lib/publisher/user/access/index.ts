@@ -32,7 +32,7 @@ export class Access {
       'post',
       `${ENDPOINT_PATH_PREFIX}/check`,
       this.piano.mergeParams(params),
-      this.piano.environment
+      this.piano.baseUrl
     )) as PublisherUserAccessCheckResponse;
 
     return apiResponse.access;
@@ -48,7 +48,7 @@ export class Access {
       'get',
       `${ENDPOINT_PATH_PREFIX}/list`,
       this.piano.mergeParams(params),
-      this.piano.environment
+      this.piano.baseUrl
     )) as PublisherUserAccessListResponse;
 
     return apiResponse.accesses;
