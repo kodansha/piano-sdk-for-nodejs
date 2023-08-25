@@ -21,6 +21,7 @@ Also, you must pick an API environment from the followings (See ["Environments" 
 - `us`
 - `au` - Australia
 - `ap` - Asia-Pacific
+- `eu` - Europe
 - `sandbox` - Sandbox
 
 The following example demonstrates fetching a user data which has uid: `abcdefg`:

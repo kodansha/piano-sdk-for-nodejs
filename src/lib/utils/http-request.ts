@@ -7,6 +7,7 @@ import { ApiResponse } from '../interfaces/api-response';
 const usBaseUrl = 'https://api.piano.io/api/v3';
 const auBaseUrl = 'https://api-au.piano.io/api/v3';
 const apBaseUrl = 'https://api-ap.piano.io/api/v3';
+const euBaseUrl = 'https://api-eu.piano.io/api/v3';
 const sandboxBaseUrl = 'https://sandbox.piano.io/api/v3';
 
 /**
@@ -33,6 +34,8 @@ export const httpRequest = async (
       ? auBaseUrl
       : environment == 'ap'
       ? apBaseUrl
+      : environment == 'eu'
+      ? euBaseUrl
       : sandboxBaseUrl;
 
   const endpoint = `${baseUrl}${path}`;
