@@ -1,1 +1,1 @@
-export type Environment = "us" | "au" | "ap" | "sandbox";
+export type Environment = "us" | "au" | "ap" | "eu" | "sandbox";
