@@ -91,6 +91,11 @@ export interface PublisherExportCreateSubscriptionDetailsReportV2Response
   export: Export;
 }
 
+export interface PublisherExportCreateUserExportV2Response
+  extends ApiResponse {
+  export: Export;
+}
+
 export interface PublisherTermChangeGetSubscriptionUpgradeStatusResponse
   extends ApiResponse {
     subscription_upgrade_status: SubscriptionUpgradeStatus | undefined;
