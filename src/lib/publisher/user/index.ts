@@ -18,16 +18,19 @@ import {
   PublisherUserSearchResponse,
   PublisherUserUpdateResponse,
 } from "../../interfaces/api-response";
+import { Email } from "./email";
 
 const ENDPOINT_PATH_PREFIX = "/publisher/user";
 
 export class User {
   private readonly piano: Piano;
   public readonly access: Access;
+  public readonly email: Email;
 
   constructor(piano: Piano) {
     this.piano = piano;
     this.access = new Access(piano);
+    this.email = new Email(piano);
   }
 
   /**
