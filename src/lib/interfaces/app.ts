@@ -2,7 +2,7 @@ export interface App {
   aid: string;
   default_lang: string;
   email_lang: string;
-  details: string;
+  details: string | null;
   email: string;
   name: string;
   user_provider: string;

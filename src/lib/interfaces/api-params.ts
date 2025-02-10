@@ -143,7 +143,7 @@ export interface PublisherUserEmailListParams {
   offset: number;
   include_email_body?: boolean;
   order_by?: string;
-  order_direction?: string;
+  order_direction?: OrderDirection;
   limit?: number;
 }
 
