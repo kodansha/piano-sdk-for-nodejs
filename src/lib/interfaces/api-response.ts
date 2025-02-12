@@ -6,6 +6,7 @@ import { UserSubscription } from './user-subscription';
 import { AccessDTO } from './access-dto';
 import { SubscriptionUpgradeStatus } from './subscription-upgrade-status';
 import { SubscriptionLogItemList } from './subscription-log-item-list';
+import { MailLog } from './mail-log';
 
 export interface ApiResponse {
   code: number;
@@ -31,6 +32,14 @@ export interface PublisherUserSearchResponse extends ApiResponse {
 
 export interface PublisherUserUpdateResponse extends ApiResponse {
   user: User;
+}
+
+export interface PublisherUserEmailGetResponse extends ApiResponse {
+  email: MailLog;
+}
+
+export interface PublisherUserEmailListResponse extends ApiResponse {
+  emails: MailLog[];
 }
 
 export interface PublisherUserAccessCheckResponse extends ApiResponse {

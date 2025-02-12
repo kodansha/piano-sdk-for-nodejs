@@ -134,6 +134,19 @@ export interface PublisherUserAccessCheckParams {
   cross_app?: boolean;
 }
 
+export interface PublisherUserEmailGetParams {
+  mail_log_id: string;
+}
+
+export interface PublisherUserEmailListParams {
+  uid: string;
+  offset: number;
+  include_email_body?: boolean;
+  order_by?: string;
+  order_direction?: OrderDirection;
+  limit?: number;
+}
+
 export interface PublisherUserAccessListParams {
   uid: string;
   expand_bundle?: boolean;
