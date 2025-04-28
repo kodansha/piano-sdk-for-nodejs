@@ -6,17 +6,17 @@ export enum SubscriptionUpgradeStatusFlag {
 }
 
 export interface SubscriptionUpgradeStatus {
-  from_term_name: string;
-  to_term_name: string;
-  from_term_id: string;
-  to_term_id: string;
-  change_date: string;
-  create_date_from: string;
-  create_date_to: string;
-  billing_plan_to: string;
-  billing_plan_from: string;
+  from_term_name: string | null;
+  to_term_name: string | null;
+  from_term_id: string | null;
+  to_term_id: string | null;
+  change_date: string | null;
+  create_date_from: string | null;
+  create_date_to: string | null;
+  billing_plan_to: string | null;
+  billing_plan_from: string | null;
   status: SubscriptionUpgradeStatusFlag;
   error_message: string;
-  prorate_amount: string;
-  prorate_refund_amount: string;
+  prorate_amount: string | null;
+  prorate_refund_amount: string | null;
 }
